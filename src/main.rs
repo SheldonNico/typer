@@ -1,5 +1,4 @@
-use std::io::{self, Write, Read, BufRead, BufReader};
-use std::path::Path;
+use std::io::{self, Write, Read};
 use std::time::Instant;
 use crossterm::{cursor, execute, queue};
 use crossterm::style::{self, Color, Print, Stylize};
@@ -340,7 +339,7 @@ fn main() -> io::Result<()> {
         });
 
     // set up timer: 60 fps
-    let rx_timer = channel::tick(std::time::Duration::from_millis(15));
+    let rx_timer = channel::tick(std::time::Duration::from_millis(100));
 
     loop {
         select! {
